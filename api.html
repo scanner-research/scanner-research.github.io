@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+
+<title>API Reference - Scanner</title>
+
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133298183-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-133298183-1');
+</script>
+
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Scanner 0.2.22 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="container">
+  <div id="navbar" class="navbar-default">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <a class="navbar-brand" href="index.html"><span><img src="_static/scanner_logo.png"></span>
+        </a>
+      </div>
+      <div class="col-md-4 offset-md-4 col-sm-12">
+        <div class="btn-group">
+          <a href="guide.html"><button type="button" class="btn btn-light">Guide</button></a>
+          <a href="#"><button type="button" class="btn btn-light">API</button></a>
+          <a href="https://github.com/scanner-research/scanner"><button type="button" class="btn btn-light">Github</button></a>
+          <a href="publications.html"><button type="button" class="btn btn-light">Publications</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="content">
+        
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>Scanner has three main components to its API:</p>
+<ul class="simple">
+<li><p>The <a class="reference internal" href="api/scannerpy.html#scannerpy-docs"><span class="std std-ref">Scanner Python API</span></a>, for defining/executing computation graphs and Python kernels</p></li>
+<li><p>The <a class="reference internal" href="api/scannertools.html#scannertools-docs"><span class="std std-ref">Scannertools API</span></a>, a standard library of pre-made kernels</p></li>
+<li><p>The <a class="reference external" href="/cpp/">Scanner C++ API</a>, for defining C++ kernels</p></li>
+</ul>
+<div class="section" id="scannerpy-the-main-scanner-api">
+<h2>scannerpy - the main scanner API<a class="headerlink" href="#scannerpy-the-main-scanner-api" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="api/scannerpy.html#module-scannerpy.client" title="scannerpy.client"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">scannerpy.client</span></code></a>: entrypoint for running computation graphs, similar to TensorFlow Session</p></li>
+<li><p><a class="reference internal" href="api/scannerpy.html#module-scannerpy.kernel" title="scannerpy.kernel"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">scannerpy.kernel</span></code></a>: defining custom Python kernels</p></li>
+<li><p><a class="reference internal" href="api/scannerpy.html#module-scannerpy.storage" title="scannerpy.storage"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">scannerpy.storage</span></code></a>: defining custom inputs/outputs to Scanner graphs</p></li>
+<li><p><a class="reference internal" href="api/scannerpy.html#module-scannerpy.kube" title="scannerpy.kube"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">scannerpy.kube</span></code></a>: Kubernetes API</p></li>
+<li><p><a class="reference internal" href="api/scannerpy.html#module-scannerpy.profiler" title="scannerpy.profiler"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">scannerpy.profiler</span></code></a>: handle to profiling data output by Scanner</p></li>
+</ul>
+</div>
+<div class="section" id="scannertools-the-scanner-standard-library">
+<h2>scannertools - the Scanner standard library<a class="headerlink" href="#scannertools-the-scanner-standard-library" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/scannertools.html">Scannertools API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/scannertools.html#operations">Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#face-detection">Face Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#face-embedding">Face Embedding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#gender-detection">Gender Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#object-detection">Object Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#pose-detection">Pose Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#shot-detection">Shot Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#resize">Resize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#optical-flow">Optical Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#histogram">Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#tracker">Tracker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/scannertools.html#utilities-for-writing-operations">Utilities for writing Operations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#caffe2">Caffe2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#pytorch">Pytorch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/scannertools.html#tensorflow">TensorFlow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/scannertools.html#storage">Storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/scannertools.html#scannertools-caffe">scannertools_caffe</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Scanner 0.2.22 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+
+<title>Scannertools API - Scanner</title>
+
+
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133298183-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-133298183-1');
+</script>
+
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Scanner 0.2.22 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="container">
+  <div id="navbar" class="navbar-default">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/scanner_logo.png"></span>
+        </a>
+      </div>
+      <div class="col-md-4 offset-md-4 col-sm-12">
+        <div class="btn-group">
+          <a href="../guide.html"><button type="button" class="btn btn-light">Guide</button></a>
+          <a href="../api.html"><button type="button" class="btn btn-light">API</button></a>
+          <a href="https://github.com/scanner-research/scanner"><button type="button" class="btn btn-light">Github</button></a>
+          <a href="../publications.html"><button type="button" class="btn btn-light">Publications</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="bs-sidenav">
+        <div class="bs-sidenav-inner">
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Scannertools API</a><ul>
+<li><a class="reference internal" href="#operations">Operations</a><ul>
+<li><a class="reference internal" href="#face-detection">Face Detection</a></li>
+<li><a class="reference internal" href="#face-embedding">Face Embedding</a></li>
+<li><a class="reference internal" href="#gender-detection">Gender Detection</a></li>
+<li><a class="reference internal" href="#object-detection">Object Detection</a></li>
+<li><a class="reference internal" href="#pose-detection">Pose Detection</a></li>
+<li><a class="reference internal" href="#shot-detection">Shot Detection</a></li>
+<li><a class="reference internal" href="#resize">Resize</a></li>
+<li><a class="reference internal" href="#optical-flow">Optical Flow</a></li>
+<li><a class="reference internal" href="#histogram">Histogram</a></li>
+<li><a class="reference internal" href="#tracker">Tracker</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#utilities-for-writing-operations">Utilities for writing Operations</a><ul>
+<li><a class="reference internal" href="#caffe2">Caffe2</a></li>
+<li><a class="reference internal" href="#pytorch">Pytorch</a></li>
+<li><a class="reference internal" href="#tensorflow">TensorFlow</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#storage">Storage</a></li>
+<li><a class="reference internal" href="#scannertools-caffe">scannertools_caffe</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/api/scannertools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="content">
+        
+  <div class="section" id="scannertools-api">
+<span id="scannertools-docs"></span><h1>Scannertools API<a class="headerlink" href="#scannertools-api" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="operations">
+<h2>Operations<a class="headerlink" href="#operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="face-detection">
+<h3>Face Detection<a class="headerlink" href="#face-detection" title="Permalink to this headline">¶</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IQsb_nbPf9M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><dl class="function">
+<dt id="ops.MTCNNDetectFaces">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">MTCNNDetectFaces</code><span class="sig-paren">(</span><em class="sig-param">frame</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.MTCNNDetectFaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect human poses in an image.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.face_detection</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frames to detect poses in.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of bounding boxes.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="scannerpy.html#scannerpy.types.BboxList" title="scannerpy.types.BboxList">scannerpy.types.BboxList</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scannerpy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">scannertools.face_detection</span>
+<span class="kn">import</span> <span class="nn">scannertools.vis</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="c1"># Compute face bounding boxes and draw them on a sample video</span>
+  <span class="k">with</span> <span class="n">sp</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">sample_video</span><span class="p">()</span> <span class="k">as</span> <span class="n">video_path</span><span class="p">:</span>
+    <span class="n">cl</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Client</span><span class="p">()</span>
+    <span class="n">video</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">NamedVideoStream</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="s1">&#39;example&#39;</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">video_path</span><span class="p">)</span>
+    <span class="n">frames</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">Input</span><span class="p">([</span><span class="n">video</span><span class="p">])</span>
+    <span class="n">faces</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">MTCNNDetectFaces</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="n">frames</span><span class="p">)</span>
+    <span class="n">drawn_faces</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">DrawBboxes</span><span class="p">(</span><span class="n">frame</span><span class="o">=</span><span class="n">frames</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="n">faces</span><span class="p">)</span>
+    <span class="n">output_video</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">NamedVideoStream</span><span class="p">(</span><span class="n">cl</span><span class="p">,</span> <span class="s1">&#39;example_faces&#39;</span><span class="p">)</span>
+    <span class="n">output_op</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">Output</span><span class="p">(</span><span class="n">drawn_faces</span><span class="p">,</span> <span class="p">[</span><span class="n">output_video</span><span class="p">])</span>
+    <span class="n">cl</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">output_op</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">PerfParams</span><span class="o">.</span><span class="n">estimate</span><span class="p">())</span>
+    <span class="n">output_video</span><span class="o">.</span><span class="n">save_mp4</span><span class="p">(</span><span class="s1">&#39;example_faces&#39;</span><span class="p">)</span>
+    <span class="c1"># output video is saved to &#39;example_faces.mp4&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="face-embedding">
+<h3>Face Embedding<a class="headerlink" href="#face-embedding" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ops.EmbedFaces">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">EmbedFaces</code><span class="sig-paren">(</span><em class="sig-param">frame</em>, <em class="sig-param">bboxes</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.EmbedFaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute a face embeddings vector for each bounding box in the image.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.face_embedding</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frames to detect poses in.</p></li>
+<li><p><strong>bboxes</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.BboxList" title="scannerpy.types.BboxList"><em>scannerpy.types.BboxList</em></a>) – Bounding boxes to compute face embeddings on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Serialized face embeddings.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(in Python v3.8)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gender-detection">
+<h3>Gender Detection<a class="headerlink" href="#gender-detection" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ops.DetectGender">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">DetectGender</code><span class="sig-paren">(</span><em class="sig-param">frame</em>, <em class="sig-param">bboxes</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.DetectGender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the gender of people in an image.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.gender_detection</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frames to detect gender in.</p></li>
+<li><p><strong>bboxes</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.BboxList" title="scannerpy.types.BboxList"><em>scannerpy.types.BboxList</em></a>) – Bounding boxes to indicate where to estimate gender.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The detected genders.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="object-detection">
+<h3>Object Detection<a class="headerlink" href="#object-detection" title="Permalink to this headline">¶</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6xt-YVFCC9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><dl class="function">
+<dt id="ops.DetectObjects">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">DetectObjects</code><span class="sig-paren">(</span><em class="sig-param">frame</em>, <em class="sig-param">bboxes</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.DetectObjects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect objects in an image.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.object_detection</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frames to detect objects in.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of bounding boxes for the detected objects.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="scannerpy.html#scannerpy.types.BboxList" title="scannerpy.types.BboxList">scannerpy.types.BboxList</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="pose-detection">
+<h3>Pose Detection<a class="headerlink" href="#pose-detection" title="Permalink to this headline">¶</a></h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/N1bT1yjnvMY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><dl class="function">
+<dt id="ops.OpenPose">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">OpenPose</code><span class="sig-paren">(</span><em class="sig-param">model_directory</em>, <em class="sig-param">pose_num_scales</em>, <em class="sig-param">pose_scale_gap</em>, <em class="sig-param">compute_hands</em>, <em class="sig-param">hand_num_scales</em>, <em class="sig-param">hand_scale_gap</em>, <em class="sig-param">compute_face</em>, <em class="sig-param">frame</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.OpenPose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect human poses in an image.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools_caffe</span></code>.</p>
+<p>Init parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_directory</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – A path to the directory with the OpenPose model files.</p></li>
+<li><p><strong>pose_num_scales</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The number of scales to evaluate the pose network on.</p></li>
+<li><p><strong>pose_scales_gap</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – The scaling factor between scales for the pose network.</p></li>
+<li><p><strong>compute_hands</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Flag to enable computing hand keypoints.</p></li>
+<li><p><strong>hand_num_scales</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The number of scales to evaluate the hand network on.</p></li>
+<li><p><strong>hand_scale_gap</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.8)"><em>float</em></a>) – The scaling factor between scales for the hand network.</p></li>
+<li><p><strong>compute_face</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Flag to enable computing face keypoints.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frames to detect poses in.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of detected poses.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>scannertools_caffe.pose_detection.PoseList</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="shot-detection">
+<h3>Shot Detection<a class="headerlink" href="#shot-detection" title="Permalink to this headline">¶</a></h3>
+<a class="reference external image-reference" href="https://storage.googleapis.com/scanner-data/public/sample-shots.jpg"><img alt="https://storage.googleapis.com/scanner-data/public/sample-shots-small.jpg" src="https://storage.googleapis.com/scanner-data/public/sample-shots-small.jpg" /></a>
+<dl class="function">
+<dt id="ops.ShotBoundaries">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">ShotBoundaries</code><span class="sig-paren">(</span><em class="sig-param">histograms</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.ShotBoundaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect shot boundaries using color histograms of frames.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.shot_detection</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>histograms</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.Histogram" title="scannerpy.types.Histogram"><em>scannerpy.types.Histogram</em></a>) – The color histograms of frames from a video.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The indices of the shot boundaries.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Sequence[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)">int</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="resize">
+<h3>Resize<a class="headerlink" href="#resize" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ops.Resize">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">Resize</code><span class="sig-paren">(</span><em class="sig-param">width</em>, <em class="sig-param">height</em>, <em class="sig-param">min</em>, <em class="sig-param">preserve_aspect</em>, <em class="sig-param">interpolation</em>, <em class="sig-param">frame</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.Resize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize images to a fixed size.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.imgproc</span></code>.</p>
+<p>Stream config parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>width</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>]</em>) – The target width of the frame.</p></li>
+<li><p><strong>height</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a><em>]</em>) – The target height of the frame.</p></li>
+<li><p><strong>min</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>]</em>) – If true, resizes frames to <code class="code docutils literal notranslate"><span class="pre">width</span></code> and <code class="code docutils literal notranslate"><span class="pre">height</span></code> only if the input frames width and height if both are less than <code class="code docutils literal notranslate"><span class="pre">width</span></code> and <code class="code docutils literal notranslate"><span class="pre">height</span></code>.</p></li>
+<li><p><strong>preserve_aspect</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a><em>]</em>) – If true, sets <code class="code docutils literal notranslate"><span class="pre">width</span></code> to preserve the aspect ratio of the input frame if <code class="code docutils literal notranslate"><span class="pre">height</span></code> is non-zero. Likewise if <code class="code docutils literal notranslate"><span class="pre">width</span></code> is non-zero.</p></li>
+<li><p><strong>interpolation</strong> (<em>Sequence</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a><em>]</em>) – The type of interpolation to use.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frame to resize.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The resized frame.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType">scannerpy.types.FrameType</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="optical-flow">
+<h3>Optical Flow<a class="headerlink" href="#optical-flow" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ops.OpticalFlow">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">OpticalFlow</code><span class="sig-paren">(</span><em class="sig-param">frame</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.OpticalFlow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes optical flow from one frame to the next.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.imgproc</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frame to compute flow on.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The flow field.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType">scannerpy.types.FrameType</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="histogram">
+<h3>Histogram<a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="ops.Histogram">
+<code class="sig-prename descclassname">ops.</code><code class="sig-name descname">Histogram</code><span class="sig-paren">(</span><em class="sig-param">frame</em><span class="sig-paren">)</span><a class="headerlink" href="#ops.Histogram" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes a color histogram of the frame.
+Registered with <code class="code docutils literal notranslate"><span class="pre">import</span> <span class="pre">scannertools.imgproc</span></code>.</p>
+<p>Stream parameters:</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>frame</strong> (<a class="reference internal" href="scannerpy.html#scannerpy.types.FrameType" title="scannerpy.types.FrameType"><em>scannerpy.types.FrameType</em></a>) – The frame to process.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The color histogram.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="scannerpy.html#scannerpy.types.Histogram" title="scannerpy.types.Histogram">scannerpy.types.Histogram</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tracker">
+<h3>Tracker<a class="headerlink" href="#tracker" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="utilities-for-writing-operations">
+<h2>Utilities for writing Operations<a class="headerlink" href="#utilities-for-writing-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="caffe2">
+<h3>Caffe2<a class="headerlink" href="#caffe2" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pytorch">
+<h3>Pytorch<a class="headerlink" href="#pytorch" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="tensorflow">
+<h3>TensorFlow<a class="headerlink" href="#tensorflow" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="storage">
+<h2>Storage<a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="scannertools-caffe">
+<h2>scannertools_caffe<a class="headerlink" href="#scannertools-caffe" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Scanner 0.2.22 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

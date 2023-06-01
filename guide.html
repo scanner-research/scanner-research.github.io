@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+
+<title>Guide - Scanner</title>
+
+
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-133298183-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-133298183-1');
+</script>
+
+
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Scanner 0.2.22 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<div class="container">
+  <div id="navbar" class="navbar-default">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <a class="navbar-brand" href="index.html"><span><img src="_static/scanner_logo.png"></span>
+        </a>
+      </div>
+      <div class="col-md-4 offset-md-4 col-sm-12">
+        <div class="btn-group">
+          <a href="#"><button type="button" class="btn btn-light">Guide</button></a>
+          <a href="api.html"><button type="button" class="btn btn-light">API</button></a>
+          <a href="https://github.com/scanner-research/scanner"><button type="button" class="btn btn-light">Github</button></a>
+          <a href="publications.html"><button type="button" class="btn btn-light">Publications</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <div class="bs-sidenav">
+        <div class="bs-sidenav-inner"><div class="guidetoc-container">
+  <div class="guidetoc"
+       role="navigation">
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="guide/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="guide/getting-started.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/getting-started.html#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/getting-started.html#homebrew">Homebrew</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/getting-started.html#from-source">From Source</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide/walkthrough.html">Walkthroughs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/walkthrough.html#converting-a-video-to-grayscale">Converting a video to grayscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/walkthrough.html#walking-through-a-more-advanced-jupyter-based-app">Walking through a more advanced Jupyter-based app</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide/graphs.html">Computation Graphs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/graphs.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/graphs.html#multiple-inputs-and-outputs">Multiple inputs and outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/graphs.html#batch-processing-of-stored-streams">Batch processing of stored streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/graphs.html#stream-operations">Stream Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide/ops.html">Operations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/ops.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/ops.html#defining-an-operation-in-python">Defining an Operation in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/ops.html#declaring-parameters">Declaring Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/ops.html#fetching-resources">Fetching Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/ops.html#operation-properties">Operation Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/ops.html#defining-an-operation-in-c">Defining an Operation in C++</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide/stored-streams.html">Stored Streams</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/stored-streams.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/stored-streams.html#storage-backends">Storage Backends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/stored-streams.html#i-o-operations">I/O Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/stored-streams.html#reading-data-locally">Reading Data Locally</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/stored-streams.html#deleting-stored-streams">Deleting Stored Streams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/stored-streams.html#inplace-video-indexing">Inplace video indexing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide/profiling.html">Performance Profiling</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="guide/profiling.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/profiling.html#trace-visualization">Trace Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/profiling.html#scanner-s-execution-model">Scanner’s Execution Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="guide/profiling.html#tunable-parameters">Tunable Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="guide/kubernetes.html">Kubernetes Integration</a></li>
+</ul>
+
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="content">
+        
+  <div class="section" id="guide">
+<h1>Guide<a class="headerlink" href="#guide" title="Permalink to this headline">¶</a></h1>
+<p>The guide is designed to get you quickly started using Scanner for your application, and then gradually expose you to more of the advanced concepts in Scanner.</p>
+<p>The guide is organized into the following sections:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="guide/quickstart.html#quickstart"><span class="std std-ref">Quickstart</span></a>: run a simple Scanner program in as few steps as possible.</p></li>
+<li><p><a class="reference internal" href="guide/getting-started.html#getting-started"><span class="std std-ref">Installation</span></a>: get Scanner set up on your machine and ready for writing your own applications.</p></li>
+<li><p><a class="reference internal" href="guide/walkthrough.html#walkthrough"><span class="std std-ref">Walkthroughs</span></a>: step-by-step walkthrough of a Scanner application.</p></li>
+<li><p><a class="reference internal" href="guide/graphs.html#graphs"><span class="std std-ref">Computation Graphs</span></a>: describes computation graphs, which are how applications are represented in Scanner.</p></li>
+<li><p><a class="reference internal" href="guide/ops.html#ops"><span class="std std-ref">Operations</span></a>: describes the properties of ops (operations). Ops are the nodes in computation graphs that process data.</p></li>
+<li><p><a class="reference internal" href="guide/stored-streams.html#stored-streams"><span class="std std-ref">Stored Streams</span></a>: describes stored streams, which represent streams of data that Scanner can read and write to.</p></li>
+<li><p><a class="reference internal" href="guide/profiling.html#profiling"><span class="std std-ref">Performance Profiling</span></a>: describes how to profile Scanner jobs and tweak parameters to improve performance.</p></li>
+<li><p><a class="reference internal" href="guide/kubernetes.html#kubernetes"><span class="std std-ref">Kubernetes Integration</span></a>: run Scanner in the cloud with Kubernetes.</p></li>
+</ul>
+<div class="section" id="support">
+<h2>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h2>
+<p>If you’re having trouble using Scanner, the best way to get help is to join the Scanner Research slack channel. Send  an email to <a class="reference external" href="mailto:wcrichto&#37;&#52;&#48;cs&#46;stanford&#46;edu">wcrichto<span>&#64;</span>cs<span>&#46;</span>stanford<span>&#46;</span>edu</a> with the subject line “Slack Access” to join our Slack channel.</p>
+<p>If you’d like to talk with the core team directly, contact Alex Poms (<a class="reference external" href="https://www.cs.cmu.edu/~apoms/">https://www.cs.cmu.edu/~apoms/</a>) or Will Crichton (<a class="reference external" href="http://willcrichton.net/">http://willcrichton.net/</a>).</p>
+<p>If you want to request a new feature or file a bug report, please do so using the <a class="reference external" href="https://github.com/scanner-research/scanner/issues">GitHub page</a>.</p>
+</div>
+</div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Scanner 0.2.22 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/python.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
